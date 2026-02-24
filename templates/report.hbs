@@ -62,7 +62,8 @@
       padding: 1.25rem;
     }
     .info-card .label { color: var(--text-dim); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .info-card .value { font-size: 1.5rem; font-weight: 700; margin-top: 0.25rem; }
+    .info-card .value { font-size: 1.5rem; font-weight: 700; margin-top: 0.25rem; overflow-wrap: break-word; word-break: break-word; }
+    .info-card { overflow: hidden; min-width: 0; }
 
     .score-section {
       text-align: center;
@@ -135,6 +136,8 @@
       align-items: center;
       gap: 0.75rem;
       user-select: none;
+      min-width: 0;
+      overflow: hidden;
     }
     .finding-header:hover { background: var(--surface2); }
     .severity-badge {
@@ -150,8 +153,8 @@
     .severity-badge.suggestion { background: var(--suggestion-bg); color: var(--suggestion); }
     .severity-badge.good { background: var(--good-bg); color: var(--good); }
 
-    .finding-title { font-weight: 600; flex: 1; }
-    .finding-location { color: var(--text-dim); font-family: var(--mono); font-size: 0.8rem; }
+    .finding-title { font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .finding-location { color: var(--text-dim); font-family: var(--mono); font-size: 0.8rem; max-width: 40%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-shrink: 0; direction: rtl; text-align: left; }
     .chevron { color: var(--text-dim); transition: transform 0.2s; }
     .finding.open .chevron { transform: rotate(90deg); }
 
@@ -162,7 +165,7 @@
     }
     .finding.open .finding-body { display: block; }
 
-    .finding-body .description { color: var(--text-dim); margin: 1rem 0; }
+    .finding-body .description { color: var(--text-dim); margin: 1rem 0; overflow-wrap: break-word; word-break: break-word; }
     .finding-body .source { color: var(--text-dim); font-style: italic; font-size: 0.85rem; margin-top: 0.5rem; }
 
     pre {
@@ -175,6 +178,9 @@
       font-size: 0.85rem;
       line-height: 1.5;
       margin: 0.75rem 0;
+      max-width: 100%;
+      white-space: pre-wrap;
+      word-break: break-word;
     }
     pre.problem { border-color: var(--critical); }
     pre.fix { border-color: var(--good); }
